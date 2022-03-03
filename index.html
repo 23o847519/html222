@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>BFAC</title>
+  </head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="css2.css">
+<link rel="stylesheet" type="text/css" href="css1.css">
+
+
+    <pre class="term">
+[<b style="color: #eeeeee">BFAC</b>:<span style="color: #a47996">~</span>]$ ls links/
+<a class="links" href="shop.html"><b>Shop/</b></a><a class="links" href="coin.html"><b>Coins/</b></a><a class="links" href="news.html"><b>News/</b></a><a class="links" href="aboutus.html"><b>About-Us/</b></a><a class="links" href="shop.html"><b>Patreon</b></a></pre>
+
+  <video id="autoplay" autoplay="" loop="" playsinline="" src="resources/war1.webm"></video>
+  <img src="resources/vjs-logo-smaller-without-crust.gif" width="230">
+
+
+
+<script>
+  /* this code is not mine all credit to https://github.com/ckath  */
+   /* I am using the css and took great insperation from ckath all credit to him im practically stealing this code!  */
+/* this js only exists because browsers dont allow fun autoplay vids by default anymore */
+document.addEventListener("DOMContentLoaded", function() {
+  let bg = document.getElementById("autoplay");
+  let p = bg.play();
+  let ap = true; if(p !== undefined){p.then(function() {}).catch(function(error){ap = false;}).then(function() {
+  if (ap) {
+    /* was going to do something clever here to avoid the frozen vid on no autoplay and no js,
+       where someone without js and autoplay would also see the gif,
+       but that would break the case where someone has autoplay enabled but not js */
+  } else {
+    let newbg = document.createElement('img');
+    newbg.id = "autoplay";
+    newbg.src = "https://xn--z7x.xn--6frz82g/_/browserissues.gif";
+    document.body.replaceChild(newbg, bg);
+    document.body.addEventListener("click", function f() {
+      document.body.replaceChild(bg, newbg);
+      bg.volume = 0;
+      bg.play();
+      document.body.removeEventListener("click", f);
+      let v = setInterval(function(){bg.volume+=0.015; if(bg.volume > .9) {clearInterval(v);}},420);
+    });
+  }
+});}});
+</script>
